@@ -1,0 +1,101 @@
+﻿@model IEnumerable<TruVoyageDataOjectLayer.Vehicle>
+
+@{
+    ViewData["Title"] = "FullVehicleInventory";
+}
+
+<h2>FullVehicleInventoryView</h2>
+
+<p>
+    <a asp-action="AddNewVehicleToInventory">Add New Vehicle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VIN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModelYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mileage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EngineSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassengerCapacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Available)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NeedsMaintenance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastMaintenance)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VIN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModelYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mileage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EngineSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassengerCapacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Available)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NeedsMaintenance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastMaintenance)
+            </td>
+            <td>
+                @Html.ActionLink("UpdateVehicleMaintenanceStatus", "UpdateVehicleMaintenanceStatus", new { id=item.VIN }) |
+                @Html.ActionLink("Details", "Details", new {id=item.VIN}) |
+                @Html.ActionLink("Remove Vehicle From Inventory", "RemoveVehicleFromInventory", new { id=item.VIN })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
