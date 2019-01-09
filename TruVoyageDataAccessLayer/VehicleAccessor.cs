@@ -32,21 +32,23 @@ namespace TruVoyageDataAccessLayer
                 {
                     while (reader.Read())
                     {
-                        vehicles.Add(new Vehicle() {
+                        vehicles.Add(new Vehicle()
+                        {
                             VIN = reader.GetString(0),
-                            VehicleType = reader.GetString(1),
-                            Make = reader.GetString(2),
-                            Model = reader.GetString(3),
-                            ModelYear = reader.GetInt32(4),
-                            Color = reader.GetString(5),
-                            Mileage = reader.GetInt32(6),
-                            EngineSize = reader.GetString(7),
-                            PassengerCapacity = reader.GetInt32(8),
-                            PurchasePrice = reader.GetDecimal(9),
-                            MaintenacnePersonnelID = reader.GetInt32(10),
-                            LastMaintenance = reader.GetDateTime(11),
-                            Available = reader.GetBoolean(12),
-                            NeedsMaintenance = reader.GetBoolean(13)                                                                                  
+                            Make = reader.GetString(1),
+                            Model = reader.GetString(2),
+                            ModelYear = reader.GetInt32(3),
+                            VehicleTypeID = reader.GetString(4),
+                            VehicleClassID = reader.GetString(5),
+                            Color = reader.GetString(6),
+                            Mileage = reader.GetInt32(7),
+                            EngineSize = reader.GetString(8),
+                            PassengerCapacity = reader.GetInt32(9),
+                            PurchasePrice = reader.GetDecimal(10),
+                            MaintenacnePersonnelID = reader.GetInt32(11),
+                            LastMaintenance = reader.GetDateTime(12),
+                            Available = reader.GetBoolean(13),
+                            NeedsMaintenance = reader.GetBoolean(14)
                         });
                     }
                     reader.Close();
@@ -83,26 +85,27 @@ namespace TruVoyageDataAccessLayer
                         vehicles.Add(new Vehicle()
                         {
                             VIN = reader.GetString(0),
-                            VehicleType = reader.GetString(1),
-                            Make = reader.GetString(2),
-                            Model = reader.GetString(3),
-                            ModelYear = reader.GetInt32(4),
-                            Color = reader.GetString(5),
-                            Mileage = reader.GetInt32(6),
-                            EngineSize = reader.GetString(7),
-                            PassengerCapacity = reader.GetInt32(8),
-                            PurchasePrice = reader.GetDecimal(9),
-                            MaintenacnePersonnelID = reader.GetInt32(10),
-                            LastMaintenance = reader.GetDateTime(11),
-                            Available = reader.GetBoolean(12),
-                            NeedsMaintenance = reader.GetBoolean(13)
+                            Make = reader.GetString(1),
+                            Model = reader.GetString(2),
+                            ModelYear = reader.GetInt32(3),
+                            VehicleTypeID = reader.GetString(4),
+                            VehicleClassID = reader.GetString(5),
+                            Color = reader.GetString(6),
+                            Mileage = reader.GetInt32(7),
+                            EngineSize = reader.GetString(8),
+                            PassengerCapacity = reader.GetInt32(9),
+                            PurchasePrice = reader.GetDecimal(10),
+                            MaintenacnePersonnelID = reader.GetInt32(11),
+                            LastMaintenance = reader.GetDateTime(12),
+                            Available = reader.GetBoolean(13),
+                            NeedsMaintenance = reader.GetBoolean(14)
                         });
                     }
                 }
             }
             catch (Exception)
             {
-
+                throw;
             }
             finally
             {
@@ -121,10 +124,11 @@ namespace TruVoyageDataAccessLayer
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@VIN", newVehicle.VIN);
-            cmd.Parameters.AddWithValue("@VehicleType", newVehicle.VehicleType);
             cmd.Parameters.AddWithValue("@Make", newVehicle.Make);
             cmd.Parameters.AddWithValue("@Model", newVehicle.Model);
             cmd.Parameters.AddWithValue("@ModelYear", newVehicle.ModelYear);
+            cmd.Parameters.AddWithValue("@VehicleTypeID", newVehicle.VehicleTypeID);
+            cmd.Parameters.AddWithValue("@VehicleClassID", newVehicle.VehicleClassID);
             cmd.Parameters.AddWithValue("@Color", newVehicle.Color);
             cmd.Parameters.AddWithValue("@Mileage", newVehicle.Mileage);
             cmd.Parameters.AddWithValue("@EngineSize", newVehicle.EngineSize);
@@ -187,5 +191,5 @@ namespace TruVoyageDataAccessLayer
             }
             return result;
         }
-    }       
+    }
 }

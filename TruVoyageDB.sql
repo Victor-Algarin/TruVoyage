@@ -13,16 +13,66 @@ GO
 USE [TruVoyageDB]
 GO
 
+print '' print'*** Creating VehicleType Table ***'
+GO
+/* *** Object: Table[dbo].[Vehicle]*** */
+
+CREATE TABLE [dbo].[VehicleType](
+	[VehicleTypeID]			[varchar](50)			NOT NULL
+	CONSTRAINT [pk_VehicleTypeID] PRIMARY KEY ([VehicleTypeID] ASC)
+)
+GO
+
+print '' print '*** Inserting VehicleType Sample Records ***'
+GO
+INSERT INTO [dbo].[VehicleType]
+		([VehicleTypeID])
+	VALUES
+		("Car"),
+		("SUV"),
+		("Truck"),
+		("Van"),
+		("Motorcycle"),
+		("Bicycle"),
+		("Boat")
+GO
+
+print '' print'*** Creating VehicleClass Table ***'
+GO
+/* *** Object: Table[dbo].[VehicleClass]*** */
+
+CREATE TABLE [dbo].[VehicleClass](
+	[VehicleClassID]			[varchar](50) 			NOT NULL
+	CONSTRAINT [pk_VehicleClassID] PRIMARY KEY ([VehicleClassID] ASC)
+)
+GO
+
+print '' print '*** Inserting VehicleClass Sample Records ***'
+GO
+INSERT INTO [dbo].[VehicleClass]
+		([VehicleClassID])
+	VALUES
+		("Luxury"),
+		("Premium"),
+		("Mid-Size"),
+		("Compact"),
+		("Full-Size"),
+		("Touring"),
+		("MotorSport"),
+		("Off-Road")
+GO
+
 print '' print '*** Creating Vehicle Table ***'
 GO
 /* *** Object: Table[dbo].[Vehicle]*** */
 
 CREATE TABLE [dbo].[Vehicle](
-	[VIN]				[varchar](300) 			NOT NULL,
-	[VehicleType]		[varchar](50)			NOT NULL,
+	[VIN]				[varchar](300) 			NOT NULL,	
 	[Make]				[varchar](50)			NOT NULL,
 	[Model]				[varchar](50)			NOT NULL,
 	[ModelYear]			[int]					NOT NULL,
+	[VehicleTypeID]		[varchar](50)			NOT NULL,
+	[VehicleClassID]	[varchar](50)			NOT NULL,
 	[Color]				[varchar](50)			NOT NULL,
 	[Mileage]			[int]					NOT NULL,
 	[EngineSize]		[varchar](20)			NOT NULL,
@@ -37,14 +87,32 @@ CREATE TABLE [dbo].[Vehicle](
 )
 GO
 
+print '' print '*** Creating Vehicle VehicleTypeID foreign key ***'
+GO
+ALTER TABLE [dbo].[Vehicle]  WITH NOCHECK 
+	ADD CONSTRAINT [FK_VehicleTypeID] FOREIGN KEY([VehicleTypeID])
+	REFERENCES [dbo].[VehicleType] ([VehicleTypeID])
+	ON UPDATE CASCADE
+GO 
+
+print '' print '*** Creating Vehicle VehicleClassID foreign key ***'
+GO
+ALTER TABLE [dbo].[Vehicle]  WITH NOCHECK 
+	ADD CONSTRAINT [FK_VehicleClassID] FOREIGN KEY([VehicleClassID])
+	REFERENCES [dbo].[VehicleClass] ([VehicleClassID])
+	ON UPDATE CASCADE
+GO  
+
 print '' print '*** Inserting Vehicle Sample Records ***'
 GO
 INSERT INTO [dbo].[Vehicle]
-		([VIN], [VehicleType], [Make], [Model], [ModelYear], [Color], [Mileage], [EngineSize], [PassengerCapacity], [PurchasePrice],[Available], [NeedsMaintenance])
+		([VIN], [Make], [Model], [ModelYear], [VehicleTypeID], [VehicleClassID], [Color], 
+		[Mileage], [EngineSize], [PassengerCapacity], [PurchasePrice],[Available], [NeedsMaintenance])
 	VALUES
-		("5FSH67562CGRFH345", 'Car', "Dodge", 'Charger Scat Pack', 2018, "Black", 000185, "V8", 4, 37000.00, 1, 0),
-		("TY82AS483416SSSF8", 'Car', "Toyota", 'Camry XSE V6', 2019, "White", 002085, "V6", 4, 34600.00, 1, 0),
-		("SADGF456S45HFHS34Q4", 'SUV', "Land Rover", "Range Rover", 2019, "Silver", 000028, "V8", 5, 80559.96, 0, 1)
+		("5FSH67562CGRFH345", "Dodge", 'Charger Scat Pack', 2018, "Car", "Premium", "Black", 000185, "V8", 4, 37000.00, 1, 0),
+		("TY82AS483416SSSF8", "Toyota", 'Camry XSE V6', 2019, "Car", "Mid-Size", "White", 002085, "V6", 4, 34600.00, 1, 0),
+		("SADGF456S45HFHS34Q4", "Land Rover", "Range Rover", 2019, "SUV", "Luxury", "Silver", 000028, "V8", 5, 80559.96, 0, 1)
+GO 
 
 print '' print '**** Creating sp_retrieve_all_vehicles ****'
 GO
@@ -102,16 +170,17 @@ AS
 		RETURN @@ROWCOUNT
 	END
 GO
-
+ 
 print '' print '**** Creating sp_add_vehicle_to_inventory ****'
 GO
 CREATE PROCEDURE [dbo].[sp_add_vehicle_to_inventory]
 	(
-		@VIN 				[varchar](300),
-		@VehicleType		[varchar](50),
+		@VIN 				[varchar](300),		
 		@Make				[varchar](50),
 		@Model				[varchar](50),
 		@ModelYear			[int],
+		@VehicleTypeID		[varchar](50),
+		@VehicleClassID		[varchar](50),
 		@Color				[varchar](50),
 		@Mileage			[int],
 		@EngineSize			[varchar](20),
@@ -121,10 +190,10 @@ CREATE PROCEDURE [dbo].[sp_add_vehicle_to_inventory]
 AS
 	BEGIN
 		INSERT INTO [dbo].[Vehicle]
-			([VIN], [VehicleType], [Make], [Model], [ModelYear],
-				[Color], [Mileage], [EngineSize], [PassengerCapacity], [PurchasePrice])
+			([VIN], [Make], [Model], [ModelYear], [VehicleTypeID], [VehicleClassID], 
+			[Color], [Mileage], [EngineSize], [PassengerCapacity], [PurchasePrice])
 		VALUES
-			(@VIN, @VehicleType, @Make, @Model, @ModelYear, @Color, @Mileage, @EngineSize, @PassengerCapacity, @PurchasePrice)
+			(@VIN, @Make, @Model, @ModelYear, @VehicleTypeID, @VehicleClassID, @Color, @Mileage, @EngineSize, @PassengerCapacity, @PurchasePrice)
 		RETURN @@ROWCOUNT
 	END
 GO

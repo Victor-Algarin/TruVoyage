@@ -12567,11 +12567,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Victor\\Desktop\\truvoyage\\TruVoyageMVCLayer\\TruVoyageMVCLayer.csproj",
+      "projectUniqueName": "C:\\Users\\Victor\\Desktop\\TruVoyage\\TruVoyageMVCLayer\\TruVoyageMVCLayer.csproj",
       "projectName": "TruVoyageMVCLayer",
-      "projectPath": "C:\\Users\\Victor\\Desktop\\truvoyage\\TruVoyageMVCLayer\\TruVoyageMVCLayer.csproj",
+      "projectPath": "C:\\Users\\Victor\\Desktop\\TruVoyage\\TruVoyageMVCLayer\\TruVoyageMVCLayer.csproj",
       "packagesPath": "C:\\Users\\Victor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Victor\\Desktop\\truvoyage\\TruVoyageMVCLayer\\obj\\",
+      "outputPath": "C:\\Users\\Victor\\Desktop\\TruVoyage\\TruVoyageMVCLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12590,11 +12590,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\Victor\\Desktop\\truvoyage\\TruVoyageDataOjectLayer\\TruVoyageDataOjectLayer.csproj": {
-              "projectPath": "C:\\Users\\Victor\\Desktop\\truvoyage\\TruVoyageDataOjectLayer\\TruVoyageDataOjectLayer.csproj"
+            "C:\\Users\\Victor\\Desktop\\TruVoyage\\TruVoyageDataOjectLayer\\TruVoyageDataOjectLayer.csproj": {
+              "projectPath": "C:\\Users\\Victor\\Desktop\\TruVoyage\\TruVoyageDataOjectLayer\\TruVoyageDataOjectLayer.csproj"
             },
-            "C:\\Users\\Victor\\Desktop\\truvoyage\\TruVoyageLogicLayer\\TruVoyageLogicLayer.csproj": {
-              "projectPath": "C:\\Users\\Victor\\Desktop\\truvoyage\\TruVoyageLogicLayer\\TruVoyageLogicLayer.csproj"
+            "C:\\Users\\Victor\\Desktop\\TruVoyage\\TruVoyageLogicLayer\\TruVoyageLogicLayer.csproj": {
+              "projectPath": "C:\\Users\\Victor\\Desktop\\TruVoyage\\TruVoyageLogicLayer\\TruVoyageLogicLayer.csproj"
             }
           }
         }

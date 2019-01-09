@@ -13,13 +13,13 @@ namespace TruVoyageMVCLayer.Controllers
 {
     public class VehicleController : Controller
     {
-       
+
         IVehicleManager vicManager = new VehicleManager();
 
         // GET: Vehicle
         public ViewResult Index()
         {
-            return View (vicManager.GetAvailableVehicles());
+            return View(vicManager.GetAvailableVehicles());
         }
 
         // GET: Vehcicle
@@ -37,7 +37,7 @@ namespace TruVoyageMVCLayer.Controllers
 
         // POST: Vehicle/Create
         [HttpPost]
-        public ActionResult AddNewVehicleToInventory([Bind(include:"VIN, VehicleType, Make, Model, ModelYear, Color, Mileage, " +
+        public ActionResult AddNewVehicleToInventory([Bind(include:"VIN,  Make, Model, ModelYear, VehicleTypeID, VehicleClassID, Color, Mileage, " +
             "EngineSize, PassengerCapacity, PurchasePrice")]Vehicle vehicle)
         {
             if (ModelState.IsValid)
@@ -51,13 +51,13 @@ namespace TruVoyageMVCLayer.Controllers
                     return StatusCode(StatusCodes.Status503ServiceUnavailable);
                 }
             }
-            return View(vehicle);            
+            return View(vehicle);
         }
 
         // GET: Vehicle/UpdateVehicleMaintenanceStatus
         public ActionResult UpdateVehicleMaintenanceStatus(string id)
         {
-            if (id==null)
+            if (id == null)
             {
                 return StatusCode(StatusCodes.Status400BadRequest);
             }
@@ -89,7 +89,7 @@ namespace TruVoyageMVCLayer.Controllers
                     return StatusCode(StatusCodes.Status503ServiceUnavailable);
                 }
             }
-            return View(newVehicle);            
+            return View(newVehicle);
         }
     }
 }

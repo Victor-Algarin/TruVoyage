@@ -16,9 +16,6 @@
                 @Html.DisplayNameFor(model => model.VIN)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.VehicleType)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Make)
             </th>
             <th>
@@ -26,6 +23,12 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ModelYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleTypeID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleClassID)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Color)
@@ -52,50 +55,54 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.VIN)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VehicleType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Make)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModelYear)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Color)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Mileage)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EngineSize)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PassengerCapacity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Available)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NeedsMaintenance)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastMaintenance)
-            </td>
-            <td>
-                @Html.ActionLink("UpdateVehicleMaintenanceStatus", "UpdateVehicleMaintenanceStatus", new { id=item.VIN }) |
-                @Html.ActionLink("Details", "Details", new {id=item.VIN}) |
-                @Html.ActionLink("Remove Vehicle From Inventory", "RemoveVehicleFromInventory", new { id=item.VIN })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VIN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Make)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModelYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VehicleTypeID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VehicleClassID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Color)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mileage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EngineSize)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PassengerCapacity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Available)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NeedsMaintenance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastMaintenance)
+                </td>
+                <td>
+                    @Html.ActionLink("UpdateVehicleMaintenanceStatus", "UpdateVehicleMaintenanceStatus", new { id = item.VIN }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.VIN }) |
+                    @Html.ActionLink("Remove Vehicle From Inventory", "RemoveVehicleFromInventory", new { id = item.VIN })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
