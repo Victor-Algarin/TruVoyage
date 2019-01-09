@@ -64,3 +64,14 @@ C:\Users\va_al\Desktop\TruVoyage\TruVoyageLogicLayer\obj\Debug\TruVoyageLogicLay
 C:\Users\va_al\Desktop\TruVoyage\TruVoyageLogicLayer\obj\Debug\TruVoyageLogicLayer.csproj.CopyComplete
 C:\Users\va_al\Desktop\TruVoyage\TruVoyageLogicLayer\obj\Debug\TruVoyageLogicLayer.dll
 C:\Users\va_al\Desktop\TruVoyage\TruVoyageLogicLayer\obj\Debug\TruVoyageLogicLayer.pdb
+C:\Users\Victor\Desktop\truvoyage\TruVoyageLogicLayer\bin\Debug\TruVoyageLogicLayer.dll
+C:\Users\Victor\Desktop\truvoyage\TruVoyageLogicLayer\bin\Debug\TruVoyageLogicLayer.pdb
+C:\Users\Victor\Desktop\truvoyage\TruVoyageLogicLayer\bin\Debug\TruVoyageDataAccessLayer.dll
+C:\Users\Victor\Desktop\truvoyage\TruVoyageLogicLayer\bin\Debug\TruVoyageDataOjectLayer.dll
+C:\Users\Victor\Desktop\truvoyage\TruVoyageLogicLayer\bin\Debug\TruVoyageDataAccessLayer.pdb
+C:\Users\Victor\Desktop\truvoyage\TruVoyageLogicLayer\bin\Debug\TruVoyageDataOjectLayer.pdb
+C:\Users\Victor\Desktop\truvoyage\TruVoyageLogicLayer\obj\Debug\TruVoyageLogicLayer.csprojAssemblyReference.cache
+C:\Users\Victor\Desktop\truvoyage\TruVoyageLogicLayer\obj\Debug\TruVoyageLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\Victor\Desktop\truvoyage\TruVoyageLogicLayer\obj\Debug\TruVoyageLogicLayer.csproj.CopyComplete
+C:\Users\Victor\Desktop\truvoyage\TruVoyageLogicLayer\obj\Debug\TruVoyageLogicLayer.dll
+C:\Users\Victor\Desktop\truvoyage\TruVoyageLogicLayer\obj\Debug\TruVoyageLogicLayer.pdb
