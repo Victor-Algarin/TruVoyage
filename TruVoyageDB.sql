@@ -114,6 +114,27 @@ INSERT INTO [dbo].[Vehicle]
 		("SADGF456S45HFHS34Q4", "Land Rover", "Range Rover", 2019, "SUV", "Luxury", "Silver", 000028, "V8", 5, 80559.96, 0, 1)
 GO 
 
+print '' print '**** Creating sp_select_specific_vehicle_for_rental ****'
+GO
+CREATE PROCEDURE [dbo].[sp_select_specific_vehicle_for_rental]
+	(
+		@VIN [varchar](300),
+		@OldAvailable [bit],
+		@NewAvailable [bit]
+	)
+AS 
+	BEGIN
+		UPDATE Vehicle
+			SET Available = @NewAvailable
+			WHERE VIN = @VIN
+			SELECT VIN, Make, Model, ModelYear, VehicleTypeID, VehicleClassID, Color, Mileage, EngineSize,
+			PassengerCapacity, PurchasePrice, Available, NeedsMaintenance
+			FROM Vehicle
+			WHERE VIN = @VIN
+		RETURN @@ROWCOUNT
+	END
+GO
+
 print '' print '**** Creating sp_retrieve_all_vehicles ****'
 GO
 CREATE PROCEDURE [dbo].[sp_retrieve_all_vehicles]
@@ -310,6 +331,7 @@ GO */
 
 
 -- PROBABLY NEED TO MAKE A LOOK UP TABLE, OR JUST DO THIS IN A STORED PROCEDURE
+
 print '' print '*** Inserting VehicleReservation Sample Records ***'
 GO
 INSERT INTO [dbo].[VehicleReservation]
@@ -330,6 +352,8 @@ INSERT INTO [dbo].[VehicleReservation]([PickUpLocation], [DropOffLocation])
 	FROM [dbo].[RentalCompany]
 	WHERE [RentalCompany].[CompanyID] = [VehicleReservation].[CompanyID]
 GO */
+
+
 
 
 print '' print '*** Creating VehicleReservation CustomerID foreign key ***'
